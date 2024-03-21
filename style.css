@@ -1,14 +1,14 @@
 :root {
-    --background-color: hsl(0, 0%, 10%);
+    --background-color: hsl(43, 75%, 9%);
     --text-color: hsl(43, 100%, 50%);
     --text-color-bright: hsl(43, 100%, 68%);
-    --dark-highlight-color: hsl(43, 100%, 10%);
+    --dark-highlight-color: hsl(43, 100%, 15%);
     --medium-highlight-color: hsl(43, 100%, 25%);
-    --body-font-size: 18pt;
+    --body-font-size: 17.5pt;
     --line-height: 1.45em;
     --link-padding-vertical: 0.05em;
     --link-padding-horizontal: 0.1em;
-    --link-border-radius: 4pt;
+    --link-border-radius: 4.5pt;
 }
 
 html {
@@ -18,8 +18,13 @@ html {
     font-weight: 300;
 }
 
+pre {
+    font-family: "Iosevka Web";
+    font-weight: 300;
+}
+
 body {
-    padding: 2.5em 5em;
+    padding: 2.25em 5em;
     padding-bottom: 0.5em;
     max-width: 72em;
     margin: auto;
@@ -59,6 +64,30 @@ a {
     text-decoration: none;
     padding: var(--link-padding-vertical) var(--link-padding-horizontal);
     margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal));
+}
+
+a[href^='http']:after {
+    content: "";
+    width: calc(.68 * var(--body-font-size));
+    height: calc(.68 * var(--body-font-size));
+    margin-left: 7.5pt;
+    margin-right: 4.5pt;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+    filter: invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+
+a[href^='http']:hover:after {
+    filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
+}
+
+a[href^='mailto']:after {
+    content: "✉";
+    margin-left: 5.5pt;
+    margin-right: 3.5pt;
 }
 
 a:hover {
