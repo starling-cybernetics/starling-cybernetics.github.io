@@ -66,6 +66,9 @@ a {
     margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal));
 }
 
+/* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
+/* External link styling adapted from <https://codepen.io/mark_sottek/pen/rNdYLGN> */
+
 a[href^='http']:after {
     content: "";
     width: calc(.68 * var(--body-font-size));
