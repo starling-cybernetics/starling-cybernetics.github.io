@@ -46,6 +46,7 @@ a {
     text-decoration: underline;
     font-weight: bold;
     padding: 0.05em 0.1em;
+    margin: -0.05em -0.1em;
 }
 
 a:hover {
