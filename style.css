@@ -67,7 +67,7 @@ a {
     border-radius: var(--link-border-radius);
     text-decoration: none;
     padding: var(--link-padding-vertical) var(--link-padding-horizontal);
-    margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal));
+    /* margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal)); */
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
 }
