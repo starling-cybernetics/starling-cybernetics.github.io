@@ -25,30 +25,34 @@ pre {
 
 body {
     padding: 2.25em 5em;
-    padding-bottom: 0.5em;
-    max-width: 72em;
+    padding-bottom: 0.25em;
+    max-width: 71em;
     margin: auto;
+}
+
+h1, h2, h3 {
+    font-weight: 500;
+    line-height: var(--line-height);
 }
 
 h1 {
     font-size: 3.75em;
-    margin-bottom: 1em;
-    font-weight: 500;
+    margin-bottom: .5em;
 }
 
 h2 {
     font-size: 2.5em;
-    margin-bottom: 0.75em;
-    font-weight: 500;
+    margin-bottom: 0.25em;
 }
 
 h3 {
     font-size: 2em;
-    margin-bottom: 0.5em;
-    font-weight: 500;
+    margin-bottom: 0.125em;
 }
 
 p {
+    margin: 1em;
+    margin-top: 0;
     margin-bottom: var(--line-height);
     line-height: var(--line-height);
     font-size: var(--body-font-size);
@@ -85,6 +89,10 @@ a[href^='http']:after {
 
 a[href^='http']:hover:after {
     filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
+}
+
+a[href^=mailto] {
+    hyphens: none;
 }
 
 a[href^='mailto']:after {
