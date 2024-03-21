@@ -1,61 +1,77 @@
 :root {
     --background-color: hsl(0, 0%, 10%);
     --text-color: hsl(43, 100%, 50%);
+    --text-color-bright: hsl(43, 100%, 68%);
+    --dark-highlight-color: hsl(43, 100%, 10%);
+    --medium-highlight-color: hsl(43, 100%, 25%);
     --body-font-size: 18pt;
-    --line-height: 1.3em;
+    --line-height: 1.45em;
+    --link-padding-vertical: 0.05em;
+    --link-padding-horizontal: 0.1em;
+    --link-border-radius: 4pt;
 }
 
 html {
     background: var(--background-color);
     color: var(--text-color);
-    font-family: monospace;
+    font-family: "Iosevka Aile Web";
+    font-weight: 300;
 }
 
 body {
-    padding: 5em;
+    padding: 2.5em 5em;
+    padding-bottom: 0.5em;
     max-width: 72em;
     margin: auto;
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 3.75em;
     margin-bottom: 1em;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 0.75em;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 2em;
     margin-bottom: 0.5em;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 p {
     margin-bottom: var(--line-height);
     line-height: var(--line-height);
     font-size: var(--body-font-size);
+    hyphens: auto;
 }
 
 a {
-    color: var(--text-color);
-    text-decoration: underline;
-    font-weight: bold;
-    padding: 0.05em 0.1em;
-    margin: -0.05em -0.1em;
+    color: var(--text-color-bright);
+    background: var(--dark-highlight-color);
+    font-weight: 1000;
+    border: 1pt solid var(--medium-highlight-color);
+    border-radius: var(--link-border-radius);
+    text-decoration: none;
+    padding: var(--link-padding-vertical) var(--link-padding-horizontal);
+    margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal));
 }
 
 a:hover {
     color: var(--background-color);
-    background: var(--text-color);
-    border-radius: 2px;
-    text-decoration: none;
+    background: var(--text-color-bright);
 }
 
 strong {
-    font-weight: bold;
+    font-weight: 1000;
+    color: var(--text-color-bright);
+}
+
+::selection {
+    background: var(--text-color-bright);
+    color: var(--background-color);
 }
