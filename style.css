@@ -7,7 +7,7 @@
     --body-font-size: 17pt;
     --line-height: 1.45em;
     --link-padding-vertical: 0.05em;
-    --link-padding-horizontal: 0.1em;
+    --link-padding-horizontal: 0.2em;
     --link-border-radius: 4.5pt;
 }
 
@@ -68,6 +68,8 @@ a {
     text-decoration: none;
     padding: var(--link-padding-vertical) var(--link-padding-horizontal);
     margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal));
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
 }
 
 /* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
@@ -78,7 +80,7 @@ a[href^='http']:after {
     width: calc(.68 * var(--body-font-size));
     height: calc(.68 * var(--body-font-size));
     margin-left: 7.5pt;
-    margin-right: 4.5pt;
+    margin-right: 3pt;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
     filter: invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
     background-position: center;
@@ -87,7 +89,7 @@ a[href^='http']:after {
     display: inline-block;
 }
 
-a[href^='http']:hover:after {
+a[href^='http']:hover:after, a[href^='http']:focus:after {
     filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
 }
 
@@ -99,9 +101,10 @@ a[href^='mailto']:after {
     content: "✉";
     margin-left: 5.5pt;
     margin-right: 3.5pt;
+    white-space: nowrap;
 }
 
-a:hover {
+a:hover, a:focus {
     color: var(--background-color);
     background: var(--text-color-bright);
 }
