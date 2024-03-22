@@ -9,18 +9,21 @@
     --link-padding-vertical: 0.05em;
     --link-padding-horizontal: 0.2em;
     --link-border-radius: 4.5pt;
+    --normal-font-weight: 300;
+    --heading-font-weight: 500;
+    --bold-font-weight: 1000;
 }
 
 html {
     background: var(--background-color);
     color: var(--text-color);
     font-family: "Iosevka Aile Web";
-    font-weight: 300;
+    font-weight: var(--normal-font-weight);
 }
 
 pre {
     font-family: "Iosevka Web";
-    font-weight: 300;
+    font-weight: var(--normal-font-weight);
 }
 
 body {
@@ -31,7 +34,7 @@ body {
 }
 
 h1, h2, h3 {
-    font-weight: 500;
+    font-weight: var(--heading-font-weight);
     line-height: var(--line-height);
 }
 
@@ -62,7 +65,7 @@ p {
 a {
     color: var(--text-color-bright);
     background: var(--dark-highlight-color);
-    font-weight: 1000;
+    font-weight: var(--bold-font-weight);
     border: 1pt solid var(--medium-highlight-color);
     border-radius: var(--link-border-radius);
     text-decoration: none;
