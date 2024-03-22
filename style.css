@@ -11,7 +11,23 @@
     --link-border-radius: 4.5pt;
     --normal-font-weight: 300;
     --heading-font-weight: 500;
-    --bold-font-weight: 1000;
+    --bold-font-weight: 800;
+}
+
+body {
+    --full-body-width: 71em;
+    --full-body-padding: 3em;
+    --narrow-body-width: 55em;
+    --narrow-body-padding: 1em;
+    padding: var(--full-body-padding);
+    width: var(--full-body-width);
+}
+
+@media (max-width: calc(71em + 2 * 3em)) { /* Unfortunately can't use variables in media query */
+    body {
+        padding: var(--narrow-body-padding);
+        width: var(--narrow-body-width);
+    }
 }
 
 html {
@@ -27,10 +43,8 @@ pre {
 }
 
 body {
-    padding: 2.25em 5em;
-    padding-bottom: 0.25em;
-    max-width: 71em;
     margin: auto;
+    padding-bottom: 0.25em;
 }
 
 h1, h2, h3 {
@@ -65,63 +79,65 @@ p {
 a {
     color: var(--text-color-bright);
     background: var(--dark-highlight-color);
-    font-weight: var(--bold-font-weight);
     border: 1pt solid var(--medium-highlight-color);
     border-radius: var(--link-border-radius);
-    text-decoration: none;
+    font-weight: var(--bold-font-weight);
     padding: var(--link-padding-vertical) var(--link-padding-horizontal);
-    /* margin: calc(-1 * var(--link-padding-vertical)) calc(-1 * var(--link-padding-horizontal)); */
+    text-decoration: none;
     box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-}
-
-/* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
-/* External link styling adapted from <https://codepen.io/mark_sottek/pen/rNdYLGN> */
-
-a[href^='http']:after {
-    content: "";
-    width: calc(.68 * var(--body-font-size));
-    height: calc(.68 * var(--body-font-size));
-    margin-left: 7.5pt;
-    margin-right: 3pt;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
-    filter: invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: inline-block;
-}
-
-a[href^='http']:hover:after, a[href^='http']:focus:after {
-    filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
-}
-
-a[href^=mailto] {
-    hyphens: none;
-}
-
-a[href^='mailto']:after {
-    content: "✉";
-    margin-left: 5.5pt;
-    margin-right: 3.5pt;
-    white-space: nowrap;
 }
 
 a:hover, a:focus, a:active {
     color: var(--background-color);
     background: var(--text-color-bright);
+    border-color: var(--text-color-bright);
 }
 
-p a:focus {
-    outline: none;
+a:focus {
+    outline: 2pt solid var(--text-color-bright);
 }
 
-strong {
-    font-weight: 1000;
+strong, b {
+    font-weight: var(--bold-font-weight);
     color: var(--text-color-bright);
 }
 
 ::selection {
     background: var(--text-color-bright);
     color: var(--background-color);
+}
+
+/* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
+/* External link styling adapted from <https://codepen.io/mark_sottek/pen/rNdYLGN> */
+
+a[href^='http']:after, a[href^='mailto']:after {
+    content: "";
+    width: calc(.68 * var(--body-font-size));
+    height: calc(.68 * var(--body-font-size));
+    margin-left: 7.5pt;
+    margin-right: 3pt;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    /* Transforms a black-on-transparent icon into the bright text color */
+    filter: invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
+}
+
+a:hover:after, a:focus:after {
+    /* Transforms a black-on-transparent icon into the background color */
+    filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
+}
+
+a[href^='http']:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/%3E%3Cpath fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/%3E%3C/svg%3E");
+}
+
+a[href^='mailto']:after {
+    background-image: url("data:image/svg+xml,%3Csvg fill='%23000000' height='800px' width='800px' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 511.894 511.894' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M477.973,53.28H34.027C15.253,53.28,0,68.534,0,87.307v337.28c0,18.773,15.253,34.027,34.027,34.027h443.84 c18.773,0,34.027-15.253,34.027-34.027V87.307C512,68.534,496.747,53.28,477.973,53.28z M475.733,74.614L270.72,283.147 c-8.107,7.893-21.013,8-29.227,0.213L36.267,74.614H475.733z M21.333,422.667v-332.8l169.92,172.8L21.333,422.667z M36.907,437.28 l169.387-159.36l20.16,20.587c7.893,7.68,18.453,12.053,29.44,12.053c11.093,0,21.867-4.373,29.76-12.16l15.147-15.467 L474.667,437.28H36.907z M490.667,423.094L315.84,267.574L490.667,89.867V423.094z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+a[href^=mailto] {
+    hyphens: none;
 }
