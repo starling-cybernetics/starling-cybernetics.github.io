@@ -1,9 +1,15 @@
 :root {
-    --background-color: hsl(43, 75%, 9%);
-    --text-color: hsl(43, 100%, 50%);
-    --text-color-bright: hsl(43, 100%, 68%);
-    --dark-highlight-color: hsl(43, 100%, 15%);
-    --medium-highlight-color: hsl(43, 100%, 25%);
+    --background-color: hsl(43, 100%, 9%);
+    --darker-color: hsl(43, 100%, 15%);
+    --medium-color: hsl(43, 100%, 25%);
+    --normal-color: hsl(43, 100%, 50%);
+    --bright-color: hsl(43, 100%, 68%);
+    --sans-serif-font-family: "Iosevka Aile Web";
+    --monospace-font-family: "Iosevka Web";
+    /* Transforms a black-on-transparent icon into the bright or background color, respectively */
+    /* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
+    --bright-color-filter: brightness(0) saturate(100%) invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
+    --background-color-filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
     --body-font-size: 17pt;
     --line-height: 1.45em;
     --link-padding-vertical: 0.05em;
@@ -15,8 +21,8 @@
 }
 
 body {
-    --full-body-width: 71em;
-    --full-body-padding: 3em;
+    --full-body-width: 71em; /* If you change this, change the media query below */
+    --full-body-padding: 3em; /* If you change this, change the media query below */
     --narrow-body-width: 55em;
     --narrow-body-padding: 1em;
     padding: var(--full-body-padding);
@@ -32,13 +38,13 @@ body {
 
 html {
     background: var(--background-color);
-    color: var(--text-color);
-    font-family: "Iosevka Aile Web";
+    color: var(--normal-color);
+    font-family: var(--sans-serif-font-family);
     font-weight: var(--normal-font-weight);
 }
 
 pre {
-    font-family: "Iosevka Web";
+    font-family: var(--monospace-font-family);
     font-weight: var(--normal-font-weight);
 }
 
@@ -77,9 +83,9 @@ p {
 }
 
 a {
-    color: var(--text-color-bright);
-    background: var(--dark-highlight-color);
-    border: 1pt solid var(--medium-highlight-color);
+    color: var(--bright-color);
+    background: var(--darker-color);
+    border: 1pt solid var(--medium-color);
     border-radius: var(--link-border-radius);
     font-weight: var(--bold-font-weight);
     padding: var(--link-padding-vertical) var(--link-padding-horizontal);
@@ -90,27 +96,25 @@ a {
 
 a:hover, a:focus, a:active {
     color: var(--background-color);
-    background: var(--text-color-bright);
-    border-color: var(--text-color-bright);
+    background: var(--bright-color);
+    border-color: var(--bright-color);
 }
 
 a:focus {
-    outline: 2pt solid var(--text-color-bright);
+    outline: none;
 }
 
 strong, b {
     font-weight: var(--bold-font-weight);
-    color: var(--text-color-bright);
+    color: var(--bright-color);
 }
 
 ::selection {
-    background: var(--text-color-bright);
+    background: var(--bright-color);
     color: var(--background-color);
 }
 
-/* Filters generated using: <https://codepen.io/sosuke/pen/Pjoqqp> */
 /* External link styling adapted from <https://codepen.io/mark_sottek/pen/rNdYLGN> */
-
 a[href^='http']:after, a[href^='mailto']:after {
     content: "";
     width: calc(.68 * var(--body-font-size));
@@ -121,13 +125,11 @@ a[href^='http']:after, a[href^='mailto']:after {
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    /* Transforms a black-on-transparent icon into the bright text color */
-    filter: invert(77%) sepia(70%) saturate(386%) hue-rotate(345deg) brightness(100%) contrast(103%);
+    filter: var(--bright-color-filter);
 }
 
 a:hover:after, a:focus:after {
-    /* Transforms a black-on-transparent icon into the background color */
-    filter: brightness(0) saturate(100%) invert(12%) sepia(21%) saturate(1444%) hue-rotate(5deg) brightness(97%) contrast(99%);
+    filter: var(--background-color-filter);
 }
 
 a[href^='http']:after {
@@ -138,6 +140,7 @@ a[href^='mailto']:after {
     background-image: url("data:image/svg+xml,%3Csvg fill='%23000000' height='800px' width='800px' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 511.894 511.894' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpath d='M477.973,53.28H34.027C15.253,53.28,0,68.534,0,87.307v337.28c0,18.773,15.253,34.027,34.027,34.027h443.84 c18.773,0,34.027-15.253,34.027-34.027V87.307C512,68.534,496.747,53.28,477.973,53.28z M475.733,74.614L270.72,283.147 c-8.107,7.893-21.013,8-29.227,0.213L36.267,74.614H475.733z M21.333,422.667v-332.8l169.92,172.8L21.333,422.667z M36.907,437.28 l169.387-159.36l20.16,20.587c7.893,7.68,18.453,12.053,29.44,12.053c11.093,0,21.867-4.373,29.76-12.16l15.147-15.467 L474.667,437.28H36.907z M490.667,423.094L315.84,267.574L490.667,89.867V423.094z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
+/* Never hyphenate emails, because that would potentially make them wrong */
 a[href^=mailto] {
     hyphens: none;
 }
