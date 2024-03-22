@@ -104,9 +104,13 @@ a[href^='mailto']:after {
     white-space: nowrap;
 }
 
-a:hover, a:focus {
+a:hover, a:focus, a:active {
     color: var(--background-color);
     background: var(--text-color-bright);
+}
+
+p a:focus {
+    outline: none;
 }
 
 strong {
